@@ -185,3 +185,33 @@ else:
 #break - to exit a loop
 #continue - to skip the current iteration and move to the next iteration
 #pass - to do nothing, just a placeholder, to avoid syntax errors, maybe something will be added later
+
+#functions
+#functions - to group a block of code that can be reused
+
+#positional arguments - to pass values to a function in the order they are defined !!
+def greet_user(name, age):
+    print(f"hello {name},  you are {age} years old")
+
+greet_user("John", 30)
+greet_user("Lewy", 26)
+
+#function with keyword arguments
+greet_user(age=33, name="Lewy")
+
+#function with default arguments
+def greet_user_second(name="Lewy", age=32):
+    print(f"hello {name},  you are {age} years old")
+greet_user_second()
+greet_user_second("John", 34)
+
+#return statement
+def add_numbers(a, b, c=0, d=0):
+    return a + b + c + d
+
+def sum(num1, num2):
+    def another_function(n1, n2):
+        return n1 + n2
+    return another_function(num1, num2)
+total = sum(10, 20)
+print(total)
