@@ -289,3 +289,51 @@ def add_numbers_args(*args, **kwargs):
         total += num
     return total + sum(kwargs.values())
 print(add_numbers_args(1, 2, 3, 4, 5, a=99, b=20, c=30))
+
+#walrus operator
+#walrus operator - to assign a value to a variable and return the value at the same time
+a = 10
+b = 50
+if (c := a + b) > 20:
+    print(c)
+
+#scope
+#scope - to define the accessibility of a variable, to define the lifetime of a variable
+#scope - who have access to who
+#1 - start with local scope
+#2 - Parent scope
+#3 - Global scope
+#4 - Built-in scope
+#global keyword - to declare a variable as global, to access a global variable inside a function
+x = 10
+def my_function_global():
+    global x
+    y = 20
+    print(x, y)
+my_function_global()
+
+#local keyword - to declare a variable as local, to access a local variable inside a function
+#nonlocal keyword - to declare a variable as nonlocal, to access a nonlocal variable inside a nested function
+def outer_function():
+    x = 10
+    def inner_function():
+        nonlocal x
+        x = 90
+        print(x)
+    inner_function()
+    print(x)
+outer_function()
+
+#why do we need scope?
+#1 - to avoid naming conflicts
+#2 - to avoid accidental changes to variables
+#3 - to avoid memory leaks !!!
+#4 - to avoid unexpected behavior
+#5 - to avoid bugs
+#6 - to avoid confusion
+#7 - to avoid complexity
+#8 - to avoid performance issues
+#9 - to avoid security issues
+#10 - to avoid readability issues
+
+#First Python Test - 88% Yeyyy, Good Job Lewy ;) 07/05/2025
