@@ -209,9 +209,83 @@ greet_user_second("John", 34)
 def add_numbers(a, b, c=0, d=0):
     return a + b + c + d
 
-def sum(num1, num2):
+def sum_one(num1, num2):
     def another_function(n1, n2):
         return n1 + n2
     return another_function(num1, num2)
-total = sum(10, 20)
+total = sum_one(10, 20)
 print(total)
+
+#methods vs functions
+#methods - functions that are defined inside a class
+#functions - functions that are defined outside a class
+#methods - to call a function on an object
+#functions - to call a function without an object
+#methods - to operate on an object
+#functions - to operate on data
+#methods - to operate on a class
+#functions - to operate on a module
+#methods - to operate on a package
+#functions - to operate on a program
+#methods - to operate on a script
+#functions - to operate on a file
+#methods - to operate on a directory
+#functions - to operate on a path
+big_hello = "hello world".upper()
+joined = "hello world".join("999")
+print(big_hello)
+print(joined)
+
+#docstrings
+#docstrings - to document a function, to explain what it does
+def greet_user_hello(name):
+    """
+    This function greets the user
+    :param name: name of the user
+    :return: None
+    """
+    print(f"Hello {name}")
+
+greet_user_hello("Lewy")
+
+#help - to get help on a function, to see the docstring
+# help(greet_user_hello)
+print(greet_user_hello.__doc__)
+
+#function annotations
+def add_numbers_hello(a: int, b: int) -> int:
+    """
+    This function adds two numbers
+    :param a: first number
+    :param b: second number
+    :return: sum of a and b
+    """
+    return a + b
+
+print(add_numbers_hello(10, 20))
+
+#lambda functions
+#lambda functions - to create a small anonymous function
+#lambda - to create a function without a name
+add = lambda x, y: x + y
+print(add(2, 3))
+
+
+#clean code
+#clean code - to write code that is easy to read and understand
+#clean code - to write code that is easy to maintain and modify
+#clean code - to write code that is easy to test and debug
+#clean code - to write code that is easy to reuse and share
+#clean code - to write code that is easy to document and explain
+def is_even(n):
+    return n % 2 == 0
+print(is_even(10))
+
+#args and kwargs
+#args - to pass a variable number of arguments to a function
+def add_numbers_args(*args, **kwargs):
+    total = 0
+    for num in args:
+        total += num
+    return total + sum(kwargs.values())
+print(add_numbers_args(1, 2, 3, 4, 5, a=99, b=20, c=30))
