@@ -15,15 +15,16 @@ class PlayerCharacter:
 
     membership = True  # Class Object Attribute
 
-    def __init__(self, name, age):  # Constructor, # self - to refer to the instance of the class
+    # Constructor, # self - to refer to the instance of the class #  __init__ dunder method
+    def __init__(self, name, age):
         if (age > 18):
-            self.name = name  # instance attribute
-            self.age = age
+            self._name = name  # instance attribute
+            self._age = age  # _protected instance attribute private?
 
-    def shout(self):  # instance method
-        print(f'My name is {self.name}')
+    def _shout(self):  # instance method
+        print(f'My name is {self._name}')
 
-    def run(self, hello):
+    def _run(self, hello):
         print(f'Running {hello}...')
 
 # classmethod - to create a method that is bound to the class and not the instance of the class
@@ -40,12 +41,12 @@ class PlayerCharacter:
 
 player1 = PlayerCharacter("John", 25)
 player2 = PlayerCharacter("Jane", 22)
-player2.power = 99
+player2._power = 99
 
-print(player1.name)
-print(player2.shout())
-print(player1.run("GoodYeyyy"))
-print(player2.power)
+print(player1._name)
+print(player2._shout())
+print(player1._run("GoodYeyyy"))
+print(player2._power)
 
 player3 = PlayerCharacter.adding_things(10, 20)
-print(player3.name, player3.age)
+print(player3._name, player3._age)
