@@ -10,14 +10,25 @@
 # Inheritance - The ability to create a new class that is based on an existing class
 # Polymorphism - The ability to use the same method name for different types of objects
 
+class SignIn():
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
 
-class PlayerCharacter:
+    def sign_in(self, username, password):
+        self.username = username
+        self.password = password
+        print(f"Signing in {self.username} with password {self.password}")
+
+
+class PlayerCharacter(SignIn):  # Inheritance
 
     membership = True  # Class Object Attribute
 
     # Constructor, # self - to refer to the instance of the class #  __init__ dunder method
-    def __init__(self, name, age):
+    def __init__(self, name, age, username="", password=""):
         if (age > 18):
+            super().__init__(username, password)
             self._name = name  # instance attribute
             self._age = age  # _protected instance attribute private?
 
@@ -39,8 +50,9 @@ class PlayerCharacter:
         print(f'Hello {hello}, here is a static method')
 
 
-player1 = PlayerCharacter("John", 25)
-player2 = PlayerCharacter("Jane", 22)
+player1 = PlayerCharacter("John", 25, "JohnS", "1234")
+player2 = PlayerCharacter("Jane", 22, "JaneS", "5678")
+
 player2._power = 99
 
 print(player1._name)
@@ -50,3 +62,13 @@ print(player2._power)
 
 player3 = PlayerCharacter.adding_things(10, 20)
 print(player3._name, player3._age)
+
+print(player1.username)
+print(player2.password)
+
+player1.sign_in("JohnS", "1234")
+player2.sign_in("JaneS", "5678")
+
+# isinstance - to check if an object is an instance of a class
+print(isinstance(player1, PlayerCharacter))
+print(isinstance(player1, SignIn))
