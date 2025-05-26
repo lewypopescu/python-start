@@ -1,16 +1,17 @@
 # OOP
 # Object Oriented Programming
 # Class - Object - Method - Attribute
-# Encapsulation - Inheritance - Polymorphism
+# Encapsulation - Abstraction - Inheritance - Polymorphism
 # Class - A blueprint for creating objects
 # Object - An instance of a class
 # Method - A function defined inside a class
 # Attribute - A variable defined inside a class
 # Encapsulation - The bundling of data and methods that operate on that data within one unit
+# Abstraction - The process of hiding the complex implementation details and showing only the essential features of the object
 # Inheritance - The ability to create a new class that is based on an existing class
 # Polymorphism - The ability to use the same method name for different types of objects
 
-class SignIn():
+class SignIn(object):  # Base class, object is the parent class of all classes in Python, from there comes all the methods and attributes
     def __init__(self, username, password):
         self.username = username
         self.password = password
@@ -19,6 +20,9 @@ class SignIn():
         self.username = username
         self.password = password
         print(f"Signing in {self.username} with password {self.password}")
+
+    def _run(self, hello):
+        print(f'Running Sign in run {hello}...')
 
 
 class PlayerCharacter(SignIn):  # Inheritance
@@ -36,10 +40,13 @@ class PlayerCharacter(SignIn):  # Inheritance
         print(f'My name is {self._name}')
 
     def _run(self, hello):
-        print(f'Running {hello}...')
+        # Overriding the parent class method
+        super()._run(hello)
+        SignIn._run(self, "Sign in hereee")  # Calling the parent class method
+        print(f'Running Simple run {hello}...')
 
-# classmethod - to create a method that is bound to the class and not the instance of the class
-# staticmethod - to create a method that is bound to the class and not the instance of the class
+# classmethod - to create a method that is bound to the class and not the instance, it can be called on the class or instance
+# staticmethod - to create a method that does not depend on the instance or class, it can be called on the class or instance
 
     @classmethod
     def adding_things(cls, num1, num2):
@@ -72,3 +79,11 @@ player2.sign_in("JaneS", "5678")
 # isinstance - to check if an object is an instance of a class
 print(isinstance(player1, PlayerCharacter))
 print(isinstance(player1, SignIn))
+
+# issubclass - to check if a class is a subclass of another class
+print(issubclass(PlayerCharacter, SignIn))
+print(issubclass(SignIn, PlayerCharacter))
+
+# introspection - to check the attributes and methods of an object
+print(dir(player1))  # List all attributes and methods of the player1 object
+print(player1.__dict__)  # List all attributes of the player1 object
