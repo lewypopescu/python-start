@@ -87,3 +87,21 @@ print(issubclass(SignIn, PlayerCharacter))
 # introspection - to check the attributes and methods of an object
 print(dir(player1))  # List all attributes and methods of the player1 object
 print(player1.__dict__)  # List all attributes of the player1 object
+
+# dunder methods - to check the special methods of an object, they can be also overridden!
+print(player1.__class__)  # Check the class of the player1 object
+print(player1.__module__)  # Check the module of the player1 object
+print(player1.__doc__)  # Check the docstring of the player1 object
+# __str__ - to get a string representation of the object
+print(player1.__str__())  # Get the string representation of the player1 object
+# dunder methos overriding
+
+
+def __str__(self):
+    return f"PlayerCharacter(name={self._name}, age={self._age}, username={self.username})"
+
+
+# Overriding the __str__ method of the PlayerCharacter class
+PlayerCharacter.__str__ = __str__
+# Get the string representation of the player1 object using the overridden __str__ method
+print(player1)
