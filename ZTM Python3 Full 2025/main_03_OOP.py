@@ -105,3 +105,57 @@ def __str__(self):
 PlayerCharacter.__str__ = __str__
 # Get the string representation of the player1 object using the overridden __str__ method
 print(player1)
+
+# Multiple Inheritance Example
+
+
+class GameUser(object):
+    def sign_in(self):
+        print("Signing in to the game...")
+
+    def sign_out(self):
+        print("Signing out of the game...")
+
+
+class Wizard(GameUser):
+    def __init__(self, name, power):
+        self.name = name
+        self.power = power
+
+    def attack(self):
+        print(f"{self.name} attacks with power {self.power}!")
+
+
+class Archer(GameUser):
+    def __init__(self, name, arrows):
+        self.name = name
+        self.arrows = arrows
+
+    def check_arrows(self):
+        print(f"{self.name} has {self.arrows} arrows left.")
+
+    def shoot(self):
+        if self.arrows > 0:
+            print(f"{self.name} shoots an arrow!")
+            self.arrows -= 1
+        else:
+            print(f"{self.name} has no arrows left to shoot!")
+
+    def run(self):
+        print(f"{self.name} is running super fast!")
+
+
+class HybridBorg(Wizard, Archer):
+    def __init__(self, name, power, arrows):
+        Wizard.__init__(self, name, power)
+        Archer.__init__(self, name, arrows)
+
+
+hb1 = HybridBorg("borgie", 80, 10)
+hb1.sign_in()
+hb1.attack()
+hb1.check_arrows()
+hb1.shoot()
+hb1.check_arrows()
+hb1.run()
+hb1.sign_out()
