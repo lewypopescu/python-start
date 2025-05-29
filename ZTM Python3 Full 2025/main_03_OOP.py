@@ -159,3 +159,57 @@ hb1.shoot()
 hb1.check_arrows()
 hb1.run()
 hb1.sign_out()
+
+# MRO - Method Resolution Order
+
+
+class A():
+    num = 9
+
+
+class B(A):
+    pass
+
+
+class C(A):
+    num = 3
+
+
+class D(B, C):
+    pass
+
+
+# MRO for class D
+print(D.__mro__)  # Output: (<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>)
+print(D.num)  # Output: 3, it will look for the first/last occurrence of num in the MRO, database is searched in the order of the MRO
+
+
+class X:
+    pass
+
+
+class Y:
+    pass
+
+
+class Z:
+    pass
+
+
+class E(X, Y):
+    pass
+
+
+class F(Y, Z):
+    pass
+
+
+class M(F, E, Z):
+    pass
+
+
+print(M.__mro__)  # Output: (<class '__main__.M'>, <class '__main__.F'>, <class '__main__.E'>, <class '__main__.X'>, <class '__main__.Y'>, <class '__main__.Z'>, <class 'object'>)
+
+# Depth First Search Algorithm !!! - MRO
+
+# Good job Lewy ... go go go ;) 29/05/2025
