@@ -12,6 +12,9 @@
 
 # Pure functions: Functions that always produce the same output for the same input and have no side effects.
 # - Immutability: Emphasizing the use of immutable data structures.
+from functools import reduce
+
+
 def find_oldest_cat(cats):
     oldest_cat = cats[0]
     for cat in cats:
@@ -60,3 +63,35 @@ print(list(zip(my_list, second_list, third_list)))
 print(my_list)
 print(second_list)
 print(third_list)
+
+# reduce - applies a function cumulatively to the items of an iterable, reducing it to a single value
+
+
+def add(x, y):
+    return x + y
+
+
+print(reduce(add, my_list))  # Output: 21
+
+
+def multiply(x, y):
+    return x * y
+
+
+print(reduce(multiply, my_list))  # Output: 720
+
+
+def find_max(x, y):
+    return x if x > y else y
+
+
+print(reduce(find_max, my_list))  # Output: 6
+
+
+def accumulator(acc, item):
+    print(f'acc: {acc}, item: {item}')
+    return acc + item
+
+
+print(reduce(accumulator, my_list, 3))
+print(my_list)
