@@ -95,3 +95,42 @@ def accumulator(acc, item):
 
 print(reduce(accumulator, my_list, 3))
 print(my_list)
+
+# lambda expressions - anonymous functions defined using the `lambda` keyword
+print(list(map(lambda item: item * 2, my_list)))
+print(list(filter(lambda item: item % 2 != 0, my_list)))
+print(reduce(lambda acc, item: acc + item, my_list, 9))
+
+# List comprehensions - a concise way to create lists
+go_list1 = [char for char in 'hello world']
+print(go_list1)
+
+go_list2 = [num ** 2 for num in range(0, 19)]
+print(go_list2)
+
+go_list3 = [num ** 2 for num in range(29) if num % 2 != 0]
+print(go_list3)
+
+# Set comprehensions - a concise way to create sets
+# Set is an unordered collection of unique elements, so duplicates are removed, they are use to store unique items, they can be used to remove duplicates from a list, they can be modified, and they are mutable.
+go_set1 = {char for char in 'hello world'}
+print(go_set1)
+
+go_set2 = {num ** 2 for num in range(0, 19)}
+print(go_set2)
+
+go_set3 = {num ** 2 for num in range(29) if num % 2 != 0}
+print(go_set3)
+
+# Dictionary comprehensions - a concise way to create dictionaries
+my_dict1 = {
+    "a": 1,
+    "b": 2,
+    "c": 3
+}
+go_dict1 = {key: value ** 2 for key, value in my_dict1.items() if value %
+            2 != 0}
+print(go_dict1)
+
+go_dict2 = {num: num ** 2 for num in range(10)}
+print(go_dict2)
