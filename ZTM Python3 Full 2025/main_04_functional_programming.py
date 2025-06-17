@@ -134,3 +134,5 @@ print(go_dict1)
 
 go_dict2 = {num: num ** 2 for num in range(10)}
 print(go_dict2)
+
+# Good joob Lewy, go go go :d
