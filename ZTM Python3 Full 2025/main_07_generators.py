@@ -1,4 +1,7 @@
 # Generators
+from time import time
+
+
 def my_generator():
     for i in range(10):
         yield i * 2  # Yielding double the value of i
@@ -49,3 +52,82 @@ def make_list(num):
 my_list = make_list(9)
 print(my_list)
 print(list(range(9)))
+
+# Performance of generators - generators are more memory efficient than lists because they yield values one at a time and do not store the entire sequence in memory. So generators are really, really useful when calculating large sets of data.
+
+
+def performance(fn):
+    def wrapper(*args, **kwargs):
+        t1 = time()
+        result = fn(*args, *kwargs)
+        t2 = time()
+        print(f'took {t2-t1} s')
+        return result
+    return wrapper
+
+
+@performance
+def long_time():
+    print('1')
+    for i in range(10000000):  # it finishes faster
+        i*5
+
+
+long_time()
+print()
+
+
+@performance
+def long_time2():
+    print('2')
+    for i in list(range(10000000)):  # it took longer.
+        i*5
+
+
+long_time2()
+print()
+
+# Special for loops - using generators in a for loop allows you to iterate over the values produced by the generator without needing to store them all in memory at once.
+
+
+def special_for(iterable):
+    iterator = iter(iterable)  # Converts the iterable into an iterator
+    while True:
+        try:
+            item = next(iterator)  # Retrieves the next item from the iterator
+            # print(item * 3)  # Prints the item multiplied by 3
+            yield item * 3  # Yields the item multiplied by 3
+        except StopIteration:
+            break
+
+
+# This will iterate through the range object without storing all values in memory
+test_list = special_for(range(9))
+print(list(test_list))
+
+
+class MyGen:
+    current = 0
+
+    def __init__(self, first, last):
+        self.first = first
+        self.last = last
+        # this line allows us to use the current number as the starting point for the iteration
+        MyGen.current = self.first
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if MyGen.current < self.last:
+            num = MyGen.current
+            MyGen.current += 1
+            return num
+        raise StopIteration
+
+
+gen = MyGen(3, 9)
+for i in gen:
+    print(i)
+
+# go go go go :) > > >
