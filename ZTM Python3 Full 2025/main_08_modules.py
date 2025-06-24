@@ -1,8 +1,12 @@
 # Modules - importing and using modules
 
-# This code imports the main_07_generators module and uses its functionality
-import main_07_generators
+import main_08_test_modules
 
-# Accessing the long_time function from the main_07_generators module
-print(main_07_generators.long_time())
-print(main_07_generators.long_time2())
+
+print(main_08_test_modules.add(3, 9))
+
+print(main_08_test_modules.subtract(9, 6))
+
+print(main_08_test_modules.multiply(3, 3))
+
+print(main_08_test_modules.divide(9, 3))
