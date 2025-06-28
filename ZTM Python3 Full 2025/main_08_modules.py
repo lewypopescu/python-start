@@ -9,6 +9,8 @@ from main_08_test_package import shopping_cart
 import random
 # import random as lalala # Importing the random module with an alias
 
+import sys  # Importing the sys module to access system-specific parameters and functions
+
 
 print(main_08_test_modules.add(3, 9))
 
@@ -42,3 +44,9 @@ print(random.choice(['wine', 'water', 'redbull']))
 a_list = [1, 2, 3, 4, 5]
 random.shuffle(a_list)  # Shuffles the list in place
 print(a_list)
+
+# This is a list that contains the command-line arguments passed to the script, where sys.argv[0] is the script name and subsequent elements are the arguments passed.
+sys.argv
+
+first_argument = sys.argv[1] if len(sys.argv) > 1 else None
+print(f"First command-line argument: {first_argument}")
