@@ -50,3 +50,15 @@ sys.argv
 
 first_argument = sys.argv[1] if len(sys.argv) > 1 else None
 print(f"First command-line argument: {first_argument}")
+
+# Environment variables can be accessed using sys module
+# sys.path is a list of directories that Python searches for modules when importing
+# sys.path.append('/path/to/directory')  # You can add a directory to the module search path
+# Python modules are files containing Python code that can define functions, classes, and variables.
+# They allow you to organize your code into reusable components.
+# Python packages are a way of organizing related modules into a directory hierarchy.
+# A package is a directory that contains a special __init__.py file (which can be empty) and one or more module files.
+# Modules can be imported using the import statement, and you can access their functions and classes using the dot notation.
+
+# Virtual environments can be created using the venv module
+# venv is a module that allows you to create isolated Python environments - for example, you can create a virtual environment for a project to manage dependencies separately from the global Python installation.
