@@ -11,6 +11,16 @@ import random
 
 import sys  # Importing the sys module to access system-specific parameters and functions
 
+import pyjokes
+
+from collections import Counter, defaultdict
+
+import datetime
+
+from array import array
+
+li = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(Counter(li))  # Counts the occurrences of each element in the list
 
 print(main_08_test_modules.add(3, 9))
 
@@ -62,3 +72,29 @@ print(f"First command-line argument: {first_argument}")
 
 # Virtual environments can be created using the venv module
 # venv is a module that allows you to create isolated Python environments - for example, you can create a virtual environment for a project to manage dependencies separately from the global Python installation.
+
+joke = pyjokes.get_joke("en", category="neutral")
+print(f"Here's a joke for you: {joke}")
+
+li = [1, 2, 2, 4, 4, 6, 6, 9, 9, 9]
+print(Counter(li))  # Counts the occurrences of each element in the list
+
+sentence = "This is a test sentence for counting words. yeyy"
+# Counts the occurrences of each character in the sentence
+print(Counter(sentence))
+word_count = Counter(sentence.split())
+# Counts the occurrences of each word in the sentence
+print(f"Word count: {word_count}")
+
+dictionary = defaultdict((lambda: 3), {"a": 1, "b": 2, "c": 4})
+print(dictionary["a"])  # Outputs 1
+# Outputs 3, since "d" is not in the dictionary, it returns the default value (3)
+print(dictionary["d"])
+# Ordered dictionary maintains the order of insertion, but they are not as commonly used in Python 3.7 and later, where regular dictionaries maintain insertion order.
+
+print(datetime.datetime.now())  # Prints the current date and time
+
+# Demonstrating the use of array module
+arr = array('i', [1, 2, 3, 4, 5])  # 'i' indicates an array of integers
+print(arr)  # Prints the array
+print(arr[2])  # Accessing the first element of the array
