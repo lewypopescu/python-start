@@ -2,6 +2,19 @@
 
 import os
 
+# Always use 'with' statement to open files, as it ensures that the file is properly closed after its suite finishes, even if an exception is raised. Try and except blocks are not necessary when using 'with' for file operations, but you can use them if you want to handle specific exceptions.
+# try:
+#     # Opening a file in read mode
+#     with open('my_file.txt', 'r') as file:
+#         content = file.read()
+#         print(content)
+# except FileNotFoundError as err:
+#     print("File not found. Please ensure the file exists before trying to read it.")
+#     raise err  # Re-raise the exception to stop execution if the file is not found
+# except IOError as err:
+#     print("An I/O error occurred while reading the file.")
+#     raise err  # Re-raise the exception to stop execution if an I/O error occurs
+
 # Opening a file in read mode
 with open('my_file.txt', 'r') as file:
     content = file.read()
