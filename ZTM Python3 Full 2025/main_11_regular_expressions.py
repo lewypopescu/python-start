@@ -22,6 +22,15 @@ d = pattern.match(string)
 if d:
     print(f"Match at start: {d.group()}")
 
+pattern2 = re.compile(r'([a-zA-Z]+).([a])')
+string2 = "search this inside of this text please! a"
+
+a2 = pattern2.search(string2)
+b2 = pattern2.findall(string2)
+c2 = pattern2.fullmatch(string2)
+d2 = pattern2.match(string2)
+print(a2.group())
+
 
 def main():
     # Example of a simple regex pattern
