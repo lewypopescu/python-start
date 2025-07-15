@@ -1,3 +1,4 @@
+# Regex 101 site: https://regex101.com/, can help you understand regex patterns
 import re
 
 string = "Hello, hello, hello World! 1234"
@@ -47,3 +48,18 @@ def main():
 
 
 main()
+
+# Email regex pattern python
+email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+
+
+def validate_email(email):
+    if re.fullmatch(email_pattern, email):
+        print(f"'{email}' is a valid email address.")
+    else:
+        print(f"'{email}' is not a valid email address.")
+    return email
+
+
+print(validate_email("hey@email.com"))
+print(validate_email("invalidemail@com"))
