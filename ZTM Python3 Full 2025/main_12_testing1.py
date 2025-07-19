@@ -1,7 +1,10 @@
-def do_stuff(number):
+def do_stuff(number=0):
     try:
-        number = int(number)
-        print(f"Doing stuff with {number}...")
-        return number * 3
+        if number:
+            number = int(number)
+            print(f"Doing stuff with {number}...")
+            return number * 3
+        else:
+            return "plese provide a number"
     except ValueError as err:
         return err
