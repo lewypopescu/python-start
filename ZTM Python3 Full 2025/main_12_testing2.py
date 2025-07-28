@@ -7,7 +7,6 @@ class TestMain12Testing1(unittest.TestCase):
         print("Setting up the test environment...")
 
     def test_do_stuff(self):
-        '''aaaaaaaaa'''
         test_param = 10
         result = main_12_testing1.do_stuff(test_param)
         self.assertEqual(
@@ -27,6 +26,18 @@ class TestMain12Testing1(unittest.TestCase):
         test_param = ""
         result = main_12_testing1.do_stuff(test_param)
         self.assertEqual(result, "plese provide a number")
+
+    def test_input(self):
+        result = main_12_testing1.run_guess(5, 5)
+        self.assertTrue(result, "The guess should be correct.")
+
+    def test_input2(self):
+        result = main_12_testing1.run_guess(0, 5)
+        self.assertFalse(result, "The guess should be out of range.")
+
+    def test_input3(self):
+        result = main_12_testing1.run_guess(11, 5)
+        self.assertFalse(result, "The guess should be out of range.")
 
     def tearDown(self):
         print("Cleaning up after the test...")
