@@ -16,14 +16,22 @@ print("Current working directory:", os.getcwd())
 
 img_path = os.path.join(os.path.dirname(__file__), "fotos", "pikachu.jpg")
 img = Image.open(img_path)
+save_path = os.path.join(os.path.dirname(
+    __file__), "fotos", "pikachu_processed.jpg")
 
 print(f"Image format: {img.mode}")
 print(f"Image size: {img.size}")
+print(f"Image info: {img.show()}")
 
-save_path = os.path.join(os.path.dirname(
-    __file__), "fotos", "pikachu_processed.png")
+img_path_extra = os.path.join(
+    os.path.dirname(__file__), "fotos", "squirtle.jpg")
+img_extra = Image.open(img_path_extra)
+img_extra.thumbnail((200, 200))
+img_extra.save(os.path.join(os.path.dirname(
+    __file__), "fotos", "squirtle_thumbnail.jpg"))
 
 # The script opens an image, applies a blur filter, and saves the processed image. You can also use smaller filters like SHARPEN or CONTOUR. Smoothing is also available, but it is not as effective as the blur filter. You can also use the ImageEnhance module to adjust brightness, contrast, and color balance.
+# You can also use the ImageOps module to perform operations like flipping, cropping, and resizing images. The ImageDraw module allows you to draw shapes and text on images. The ImageFont module can be used to add custom fonts to your images. You can also use rotate and resize methods to change the orientation and size of the image, respectively. The ImageChops module provides a way to perform arithmetic operations on images, such as adding or subtracting pixel values.
 
 
 def process_image(image_path, output_path):
@@ -43,10 +51,10 @@ process_image(img_path, save_path)
 
 img_path2 = os.path.join(os.path.dirname(__file__), "fotos", "pikachu.jpg")
 save_path2 = os.path.join(os.path.dirname(
-    __file__), "fotos", "pikachu_converted.png")
+    __file__), "fotos", "pikachu_converted.jpg")
 
 
-def convert_image(image_path, output_path, format='PNG'):
+def convert_image(image_path, output_path, format='JPEG'):
     try:
         # Open an image file
         with Image.open(image_path) as img:
@@ -58,4 +66,4 @@ def convert_image(image_path, output_path, format='PNG'):
         print(f"An error occurred: {e}")
 
 
-convert_image(img_path2, save_path2, format='PNG')
+convert_image(img_path2, save_path2, format='JPEG')
