@@ -24,11 +24,12 @@ print(f"Image size: {img.size}")
 print(f"Image info: {img.show()}")
 
 img_path_extra = os.path.join(
-    os.path.dirname(__file__), "fotos", "squirtle.jpg")
+    os.path.dirname(__file__), "fotos", "astro.jpg")
 img_extra = Image.open(img_path_extra)
-img_extra.thumbnail((200, 200))
+img_extra.thumbnail((400, 400))
 img_extra.save(os.path.join(os.path.dirname(
-    __file__), "fotos", "squirtle_thumbnail.jpg"))
+    __file__), "fotos", "astro_thumbnail.jpg"))
+print(f"astro thumbnail size:{img_extra.size}")
 
 # The script opens an image, applies a blur filter, and saves the processed image. You can also use smaller filters like SHARPEN or CONTOUR. Smoothing is also available, but it is not as effective as the blur filter. You can also use the ImageEnhance module to adjust brightness, contrast, and color balance.
 # You can also use the ImageOps module to perform operations like flipping, cropping, and resizing images. The ImageDraw module allows you to draw shapes and text on images. The ImageFont module can be used to add custom fonts to your images. You can also use rotate and resize methods to change the orientation and size of the image, respectively. The ImageChops module provides a way to perform arithmetic operations on images, such as adding or subtracting pixel values.
@@ -67,3 +68,6 @@ def convert_image(image_path, output_path, format='JPEG'):
 
 
 convert_image(img_path2, save_path2, format='JPEG')
+
+
+# OpenCV is a powerful library for image processing and computer vision tasks. It provides a wide range of functionalities, including image manipulation, object detection, and video processing. OpenCV is widely used in various applications such as robotics, augmented reality, and facial recognition.
