@@ -2,6 +2,7 @@ import requests
 import hashlib
 import sys
 import getpass
+import shlex
 
 
 def request_api_data(query_char: str):
@@ -39,12 +40,14 @@ def main(args):
                 f'"{password}" was found {count} times — you should probably change your password!')
         else:
             print(f'"{password}" was NOT found. Carry on!')
-    return 'done!'
+    return 'done! Have a nice day! ;)'
 
 
 if __name__ == '__main__':
     args = sys.argv[1:]
     if not args:
-        pwd = getpass.getpass('Enter password to check (hidden): ')
-        args = [pwd]
+        raw = getpass.getpass(
+            'Enter one or more passwords (space/comma separated, hidden): ')
+        tokens = shlex.split(raw.replace(',', ' '))
+        args = [t for t in tokens if t]
     sys.exit(main(args))
