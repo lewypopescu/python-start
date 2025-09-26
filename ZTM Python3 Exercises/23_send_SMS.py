@@ -14,7 +14,7 @@ client = Client(account_sid, auth_token)
 try:
     message = client.messages.create(
         messaging_service_sid=messaging_sid,
-        body="Python is awesome! Sent with Twilio and Python. Lewyyy💙",
+        body="Python is awesome! Yesss ... Sent with Twilio and Python. Lewyyy💙",
         to=to_number
     )
     print(f"Message SID: {message.sid}")

@@ -12,7 +12,7 @@ is_good = True
 is_awesome = True
 
 if is_good:
-    print('You are good!')
+    print('You are good! Yesss')
 elif is_awesome:
     print('You are awesome!')
 else:
