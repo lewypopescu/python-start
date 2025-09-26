@@ -1,34 +1,23 @@
-# Byte-compiled / optimized / DLL files
+# Python cache
 __pycache__/
 *.py[cod]
 *.so
+*.egg-info/
+*.dist-info/
 
-# Virtual environment
+# Virtual environments
+.venv/
 venv/
-.env/
 env/
+ENV/
 
-# VS Code settings
-.vscode/
-
-# Jupyter Notebook
-.ipynb_checkpoints/
-
-# Test results
-*.log
-
-# OS specific
-.DS_Store
-Thumbs.db
-
-# Environment variable files
+# Env files (secrete)
+.env
 .env.local
 .env.*.local
 
-# Mac specific files
-.DS_Store?
+# VS Code
+.vscode/
 
-# Backup/Swap files
-*~
-*.swp
-*.swo
+# macOS
+.DS_Store
