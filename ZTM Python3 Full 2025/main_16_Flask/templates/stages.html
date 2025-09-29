@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Butterfly Project</title>
+    <title>Life Stages</title>
     <link
       rel="shortcut icon"
       href="{{ url_for('static', filename='butterfly.ico') }}"
@@ -13,7 +13,7 @@
   </head>
   <body>
     <header>
-      <h1>Welcome to the 🦋 Project</h1>
+      <h1>Life Stages of a 🦋</h1>
       <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
@@ -22,15 +22,22 @@
     </header>
 
     <section>
-      <h2>Transformation of a Butterfly</h2>
-      <p>
-        From caterpillar to chrysalis to butterfly, discover the magic of
-        transformation!
-      </p>
+      <h2>1. Caterpillar 🐛</h2>
+      <img
+        src="{{ url_for('static', filename='caterpillar.png') }}"
+        alt="Caterpillar"
+      />
+
+      <h2>2. Chrysalis 🐚</h2>
+      <img
+        src="{{ url_for('static', filename='chrysalis.png') }}"
+        alt="Chrysalis"
+      />
+
+      <h2>3. Butterfly 🦋</h2>
       <img
         src="{{ url_for('static', filename='butterfly.png') }}"
         alt="Butterfly"
-        class="main-img"
       />
     </section>
   </body>
