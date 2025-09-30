@@ -11,6 +11,7 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
+
   <body>
     <header>
       <h1>Welcome to the 🦋 Project</h1>
@@ -28,10 +29,12 @@
         transformation!
       </p>
       <img
+        data-zoom
         src="{{ url_for('static', filename='butterfly.png') }}"
         alt="Butterfly"
         class="main-img"
       />
     </section>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>

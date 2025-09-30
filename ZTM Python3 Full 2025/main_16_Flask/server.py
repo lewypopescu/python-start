@@ -1,8 +1,23 @@
 # Flask is a web framework for Python that allows you to build web applications quickly and easily.
 # Flask is lightweight and flexible, making it a popular choice for both beginners and experienced developers.
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify, url_for
 
 app = Flask(__name__)
+
+STAGES = [
+    {"key": "Caterpillar", "emoji": "🐛",
+     "desc": "Eats leaves and grows rapidly.",
+     "img": "caterpillar.png",
+     "fact": "A caterpillar has up to 4,000 muscles!"},
+    {"key": "Chrysalis", "emoji": "🫧",
+     "desc": "Transforms inside the chrysalis.",
+     "img": "chrysalis.png",
+     "fact": "Organs and tissues are reorganized during metamorphosis."},
+    {"key": "Butterfly", "emoji": "🦋",
+     "desc": "Emerges and takes flight.",
+     "img": "butterfly.png",
+     "fact": "Butterflies taste with their feet."}
+]
 
 
 @app.route("/")
@@ -18,6 +33,14 @@ def about():
 @app.route("/stages")
 def stages():
     return render_template("stages.html")
+
+
+@app.route("/api/stages")
+def api_stages():
+    out = []
+    for s in STAGES:
+        out.append({**s, "img": url_for("static", filename=s["img"])})
+    return jsonify(out)
 
 
 @app.route("/hello")

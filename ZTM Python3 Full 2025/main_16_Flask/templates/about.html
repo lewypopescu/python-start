@@ -11,6 +11,7 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
+
   <body>
     <header>
       <h1>About This 🦋 Project</h1>
@@ -22,11 +23,35 @@
     </header>
 
     <section>
-      <p>This is a learning project built with Flask and Python 💙</p>
+      <h2>About This 💙 Project</h2>
       <p>
-        It shows the beauty of metamorphosis: how a caterpillar becomes a
-        butterfly.
+        Built with Flask + a touch of JavaScript. Explore the butterfly life
+        cycle below.
       </p>
+
+      <div class="toolbar">
+        <button id="theme-toggle" aria-label="Toggle theme">
+          Toggle Theme
+        </button>
+      </div>
+
+      <div id="timeline" class="timeline"></div>
+
+      <div
+        id="modal"
+        class="modal"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class="modal__backdrop"></div>
+        <figure class="modal__dialog">
+          <button class="modal__close" aria-label="Close">✕</button>
+          <img id="modal-img" alt="" />
+          <figcaption id="modal-cap"></figcaption>
+        </figure>
+      </div>
     </section>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>
